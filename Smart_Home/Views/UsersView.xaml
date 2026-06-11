@@ -1,0 +1,60 @@
+<UserControl x:Class="Smart_Home.View.UsersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="700" d:DesignWidth="800">
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="{StaticResource BgMedium}" Margin="10" CornerRadius="8">
+            <Grid Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Danh sách Người dùng" Foreground="White" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,15"/>
+
+                <DataGrid Grid.Row="1" ItemsSource="{Binding UsersList}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto"/>
+                        <DataGridTextColumn Header="Họ và Tên" Binding="{Binding FullName}" Width="*"/>
+                        <DataGridTextColumn Header="Tên Đăng Nhập" Binding="{Binding Username}" Width="*"/>
+                        <DataGridTextColumn Header="Phân Quyền" Binding="{Binding Role.RoleName}" Width="Auto"/>
+                        <DataGridTextColumn Header="Trạng thái" Binding="{Binding Status}" Width="Auto"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1" Background="{StaticResource BgMedium}" Margin="0,10,10,10" CornerRadius="8">
+            <StackPanel Margin="25">
+                <TextBlock Text="Thông tin Người dùng" Foreground="White" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,25"/>
+                <TextBlock Text="Họ và Tên" Foreground="#CCCCCC" FontSize="15"/>
+                <TextBox Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Tên Đăng Nhập" Foreground="#CCCCCC" FontSize="15"/>
+                <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Phân Quyền (Role)" Foreground="#CCCCCC" FontSize="15"/>
+                <ComboBox ItemsSource="{Binding RolesList}" SelectedItem="{Binding SelectedRole, Mode=TwoWay}" DisplayMemberPath="RoleName"/>
+
+                <Grid Margin="0,25,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Content="Thêm mới" Command="{Binding AddUserCommand}" Style="{StaticResource ActionBtn}" Margin="0,0,5,10"/>
+                    <Button Grid.Row="0" Grid.Column="1" Content="Cập nhật" Command="{Binding UpdateUserCommand}" Style="{StaticResource ActionBtn}" Margin="5,0,0,10"/>
+                    <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Khóa/Xóa" Command="{Binding DeleteUserCommand}" Style="{StaticResource DangerBtn}"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

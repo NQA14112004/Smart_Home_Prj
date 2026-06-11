@@ -1,0 +1,32 @@
+<Window x:Class="Smart_Home.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Smart Home Security System" Height="720" Width="1080"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BgDark}"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="{StaticResource BgMedium}" BorderBrush="#333" BorderThickness="0,0,1,0">
+            <StackPanel Margin="0,20,0,0">
+                <TextBlock Text="Smart Home" Foreground="White" FontSize="20" FontWeight="Bold" Margin="20,0,20,30" HorizontalAlignment="Center"/>
+                <Button Content="Dashboard" Command="{Binding NavigateCommand}" CommandParameter="Dashboard" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Người dùng" Command="{Binding NavigateCommand}" CommandParameter="Users" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="RFID Cards" Command="{Binding NavigateCommand}" CommandParameter="RFIDCards" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="PIN Codes" Command="{Binding NavigateCommand}" CommandParameter="PinCodes" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Lịch sử truy cập" Command="{Binding NavigateCommand}" CommandParameter="AccessLogs" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Điều khiển thiết bị" Command="{Binding NavigateCommand}" CommandParameter="DeviceControl" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Cảnh báo" Command="{Binding NavigateCommand}" CommandParameter="Alerts" Style="{StaticResource NavButtonStyle}"/>
+            </StackPanel>
+        </Border>
+
+        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}" Margin="10"/>
+    </Grid>
+</Window>

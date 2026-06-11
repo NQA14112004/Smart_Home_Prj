@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coverage line-rate="0.9542" branch-rate="0.8582" version="1.9" timestamp="1781053246" lines-covered="313" lines-valid="328" branches-covered="115" branches-valid="134">
+  <sources>
+    <source>C:\Project\Smart_Home\Service\</source>
+  </sources>
+  <packages>
+    <package name="Smart_Home" line-rate="0.9542" branch-rate="0.8582" complexity="176">
+      <classes>
+        <class name="Smart_Home.Service.AccessLogService" filename="AccessLogService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.IDbContextFactory`1&lt;Smart_Home.Data.AppDbContext&gt;)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="19" hits="6" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="19" hits="6" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.AccessLogService/&lt;GetLogsAsync&gt;d__2" filename="AccessLogService.cs" line-rate="0.7894" branch-rate="0.8332999999999999" complexity="6">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.7894" branch-rate="0.8332999999999999" complexity="6">
+              <lines>
+                <line number="22" hits="3" branch="False" />
+                <line number="23" hits="3" branch="False" />
+                <line number="24" hits="3" branch="False" />
+                <line number="25" hits="3" branch="False" />
+                <line number="26" hits="3" branch="False" />
+                <line number="27" hits="3" branch="False" />
+                <line number="28" hits="3" branch="False" />
+                <line number="30" hits="3" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="378" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="31" hits="1" branch="False" />
+                <line number="32" hits="1" branch="False" />
+                <line number="33" hits="1" branch="False" />
+                <line number="34" hits="1" branch="False" />
+                <line number="35" hits="3" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="598" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="36" hits="0" branch="False" />
+                <line number="37" hits="0" branch="False" />
+                <line number="38" hits="0" branch="False" />
+                <line number="39" hits="0" branch="False" />
+                <line number="41" hits="3" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="1046" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="42" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="22" hits="3" branch="False" />
+            <line number="23" hits="3" branch="False" />
+            <line number="24" hits="3" branch="False" />
+            <line number="25" hits="3" branch="False" />
+            <line number="26" hits="3" branch="False" />
+            <line number="27" hits="3" branch="False" />
+            <line number="28" hits="3" branch="False" />
+            <line number="30" hits="3" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="378" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="31" hits="1" branch="False" />
+            <line number="32" hits="1" branch="False" />
+            <line number="33" hits="1" branch="False" />
+            <line number="34" hits="1" branch="False" />
+            <line number="35" hits="3" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="598" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="36" hits="0" branch="False" />
+            <line number="37" hits="0" branch="False" />
+            <line number="38" hits="0" branch="False" />
+            <line number="39" hits="0" branch="False" />
+            <line number="41" hits="3" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="1046" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="42" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.AlertService" filename="AlertService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.IDbContextFactory`1&lt;Smart_Home.Data.AppDbContext&gt;)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="19" hits="4" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="19" hits="4" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.AlertService/&lt;GetAlertsAsync&gt;d__2" filename="AlertService.cs" line-rate="0.7777" branch-rate="0.8332999999999999" complexity="6">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.7777" branch-rate="0.8332999999999999" complexity="6">
+              <lines>
+                <line number="22" hits="2" branch="False" />
+                <line number="23" hits="2" branch="False" />
+                <line number="24" hits="2" branch="False" />
+                <line number="25" hits="2" branch="False" />
+                <line number="26" hits="2" branch="False" />
+                <line number="27" hits="2" branch="False" />
+                <line number="29" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="313" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="False" />
+                <line number="32" hits="0" branch="False" />
+                <line number="33" hits="0" branch="False" />
+                <line number="34" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="533" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="35" hits="1" branch="False" />
+                <line number="36" hits="1" branch="False" />
+                <line number="37" hits="1" branch="False" />
+                <line number="38" hits="1" branch="False" />
+                <line number="40" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="981" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="41" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="False" />
+            <line number="24" hits="2" branch="False" />
+            <line number="25" hits="2" branch="False" />
+            <line number="26" hits="2" branch="False" />
+            <line number="27" hits="2" branch="False" />
+            <line number="29" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="313" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="False" />
+            <line number="32" hits="0" branch="False" />
+            <line number="33" hits="0" branch="False" />
+            <line number="34" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="533" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="35" hits="1" branch="False" />
+            <line number="36" hits="1" branch="False" />
+            <line number="37" hits="1" branch="False" />
+            <line number="38" hits="1" branch="False" />
+            <line number="40" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="981" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="41" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DashboardSnapshot" filename="DashboardService.cs" line-rate="1" branch-rate="1" complexity="15">
+          <methods>
+            <method name="get_DoorNodeOnline" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="12" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_HomeNodeOnline" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_DoorStatus" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_LockStatus" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Temperature" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Humidity" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_GasValue" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="18" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_LightValue" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="19" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_LivingRoomLightOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="20" hits="3" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Bedroom1LightOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Bedroom2LightOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="22" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_FanOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="23" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_OutdoorLedOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_LatestAlertMessage" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="25" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name="get_LatestAlertLevel" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="26" hits="4" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="12" hits="4" branch="False" />
+            <line number="13" hits="4" branch="False" />
+            <line number="14" hits="5" branch="False" />
+            <line number="15" hits="4" branch="False" />
+            <line number="16" hits="2" branch="False" />
+            <line number="17" hits="1" branch="False" />
+            <line number="18" hits="1" branch="False" />
+            <line number="19" hits="1" branch="False" />
+            <line number="20" hits="3" branch="False" />
+            <line number="21" hits="2" branch="False" />
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="False" />
+            <line number="24" hits="2" branch="False" />
+            <line number="25" hits="5" branch="False" />
+            <line number="26" hits="4" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DashboardService" filename="DashboardService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.IDbContextFactory`1&lt;Smart_Home.Data.AppDbContext&gt;)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="37" hits="4" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="37" hits="4" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DashboardService/&lt;&gt;c" filename="DashboardService.cs" line-rate="1" branch-rate="1" complexity="7">
+          <methods>
+            <method name="&lt;GetSnapshotAsync&gt;b__2_0" signature="(Smart_Home.Models.EspNode)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="45" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="&lt;GetSnapshotAsync&gt;b__2_1" signature="(Smart_Home.Models.EspNode)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="46" hits="3" branch="False" />
+              </lines>
+            </method>
+            <method name="&lt;GetSnapshotAsync&gt;b__2_2" signature="(Smart_Home.Models.Device)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="71" hits="3" branch="False" />
+              </lines>
+            </method>
+            <method name="&lt;GetSnapshotAsync&gt;b__2_3" signature="(Smart_Home.Models.Device)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="72" hits="3" branch="False" />
+              </lines>
+            </method>
+            <method name="&lt;GetSnapshotAsync&gt;b__2_4" signature="(Smart_Home.Models.Device)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="73" hits="3" branch="False" />
+              </lines>
+            </method>
+            <method name="&lt;GetSnapshotAsync&gt;b__2_5" signature="(Smart_Home.Models.Device)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="74" hits="3" branch="False" />
+              </lines>
+            </method>
+            <method name="&lt;GetSnapshotAsync&gt;b__2_6" signature="(Smart_Home.Models.Device)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="75" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="45" hits="4" branch="False" />
+            <line number="46" hits="3" branch="False" />
+            <line number="71" hits="3" branch="False" />
+            <line number="72" hits="3" branch="False" />
+            <line number="73" hits="3" branch="False" />
+            <line number="74" hits="3" branch="False" />
+            <line number="75" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DashboardService/&lt;GetSnapshotAsync&gt;d__2" filename="DashboardService.cs" line-rate="1" branch-rate="0.7692" complexity="26">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.7692" complexity="26">
+              <lines>
+                <line number="40" hits="2" branch="False" />
+                <line number="41" hits="2" branch="False" />
+                <line number="42" hits="2" branch="False" />
+                <line number="44" hits="2" branch="False" />
+                <line number="48" hits="2" branch="False" />
+                <line number="49" hits="2" branch="False" />
+                <line number="50" hits="2" branch="False" />
+                <line number="51" hits="2" branch="False" />
+                <line number="52" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="1023" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="53" hits="1" branch="False" />
+                <line number="54" hits="1" branch="False" />
+                <line number="55" hits="1" branch="False" />
+                <line number="56" hits="1" branch="False" />
+                <line number="57" hits="1" branch="False" />
+                <line number="58" hits="1" branch="False" />
+                <line number="60" hits="2" branch="False" />
+                <line number="61" hits="2" branch="False" />
+                <line number="62" hits="2" branch="False" />
+                <line number="63" hits="2" branch="False" />
+                <line number="64" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="1568" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="65" hits="1" branch="False" />
+                <line number="66" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="1589" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="67" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="1621" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="68" hits="1" branch="False" />
+                <line number="70" hits="2" branch="False" />
+                <line number="77" hits="2" branch="False" />
+                <line number="78" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="2390" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="79" hits="1" branch="False" />
+                <line number="80" hits="1" branch="False" />
+                <line number="81" hits="1" branch="False" />
+                <line number="82" hits="1" branch="False" />
+                <line number="84" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="2481" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="85" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="40" hits="2" branch="False" />
+            <line number="41" hits="2" branch="False" />
+            <line number="42" hits="2" branch="False" />
+            <line number="44" hits="2" branch="False" />
+            <line number="48" hits="2" branch="False" />
+            <line number="49" hits="2" branch="False" />
+            <line number="50" hits="2" branch="False" />
+            <line number="51" hits="2" branch="False" />
+            <line number="52" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="1023" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="53" hits="1" branch="False" />
+            <line number="54" hits="1" branch="False" />
+            <line number="55" hits="1" branch="False" />
+            <line number="56" hits="1" branch="False" />
+            <line number="57" hits="1" branch="False" />
+            <line number="58" hits="1" branch="False" />
+            <line number="60" hits="2" branch="False" />
+            <line number="61" hits="2" branch="False" />
+            <line number="62" hits="2" branch="False" />
+            <line number="63" hits="2" branch="False" />
+            <line number="64" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="1568" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="65" hits="1" branch="False" />
+            <line number="66" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="1589" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="67" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="1621" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="68" hits="1" branch="False" />
+            <line number="70" hits="2" branch="False" />
+            <line number="77" hits="2" branch="False" />
+            <line number="78" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="2390" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="79" hits="1" branch="False" />
+            <line number="80" hits="1" branch="False" />
+            <line number="81" hits="1" branch="False" />
+            <line number="82" hits="1" branch="False" />
+            <line number="84" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="2481" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="85" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DeviceToggleResult" filename="DeviceService.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Outcome" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="10" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Message" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="18" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Applied" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="19" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="17" hits="10" branch="False" />
+            <line number="18" hits="2" branch="False" />
+            <line number="19" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DeviceService" filename="DeviceService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.IDbContextFactory`1&lt;Smart_Home.Data.AppDbContext&gt;,Smart_Home.Service.IMqttService)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="33" hits="5" branch="False" />
+                <line number="34" hits="5" branch="False" />
+                <line number="35" hits="5" branch="False" />
+                <line number="36" hits="5" branch="False" />
+                <line number="37" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="33" hits="5" branch="False" />
+            <line number="34" hits="5" branch="False" />
+            <line number="35" hits="5" branch="False" />
+            <line number="36" hits="5" branch="False" />
+            <line number="37" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DeviceService/&lt;&gt;c" filename="DeviceService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="&lt;GetDeviceStatusesAsync&gt;b__3_0" signature="(Smart_Home.Models.Device)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="43" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="43" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DeviceService/&lt;GetDeviceStatusesAsync&gt;d__3" filename="DeviceService.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="40" hits="1" branch="False" />
+                <line number="41" hits="1" branch="False" />
+                <line number="42" hits="1" branch="False" />
+                <line number="44" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="40" hits="1" branch="False" />
+            <line number="41" hits="1" branch="False" />
+            <line number="42" hits="1" branch="False" />
+            <line number="44" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.DeviceService/&lt;ToggleDeviceAsync&gt;d__4" filename="DeviceService.cs" line-rate="0.9068999999999999" branch-rate="0.9" complexity="10">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.9068999999999999" branch-rate="0.9" complexity="10">
+              <lines>
+                <line number="47" hits="4" branch="False" />
+                <line number="49" hits="4" branch="False" />
+                <line number="50" hits="4" branch="False" />
+                <line number="51" hits="4" branch="False" />
+                <line number="52" hits="4" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="561" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="53" hits="1" branch="False" />
+                <line number="55" hits="3" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="622" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="56" hits="3" branch="False" />
+                <line number="57" hits="3" branch="False" />
+                <line number="59" hits="3" branch="False" />
+                <line number="60" hits="3" branch="False" />
+                <line number="62" hits="3" branch="False" />
+                <line number="63" hits="3" branch="False" />
+                <line number="64" hits="3" branch="False" />
+                <line number="65" hits="3" branch="False" />
+                <line number="66" hits="3" branch="False" />
+                <line number="67" hits="3" branch="False" />
+                <line number="68" hits="3" branch="False" />
+                <line number="69" hits="3" branch="False" />
+                <line number="70" hits="3" branch="False" />
+                <line number="71" hits="3" branch="False" />
+                <line number="72" hits="3" branch="False" />
+                <line number="73" hits="3" branch="False" />
+                <line number="75" hits="3" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="991" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="76" hits="2" branch="False" />
+                <line number="77" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="1010" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="78" hits="2" branch="False" />
+                <line number="79" hits="2" branch="False" />
+                <line number="80" hits="2" branch="False" />
+                <line number="81" hits="2" branch="False" />
+                <line number="82" hits="2" branch="False" />
+                <line number="86" hits="1" branch="False" />
+                <line number="87" hits="1" branch="False" />
+                <line number="88" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="1526" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="89" hits="1" branch="False" />
+                <line number="90" hits="1" branch="False" />
+                <line number="91" hits="1" branch="False" />
+                <line number="92" hits="1" branch="False" />
+                <line number="93" hits="0" branch="False" />
+                <line number="94" hits="0" branch="False" />
+                <line number="95" hits="0" branch="False" />
+                <line number="96" hits="0" branch="False" />
+                <line number="98" hits="4" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="47" hits="4" branch="False" />
+            <line number="49" hits="4" branch="False" />
+            <line number="50" hits="4" branch="False" />
+            <line number="51" hits="4" branch="False" />
+            <line number="52" hits="4" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="561" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="53" hits="1" branch="False" />
+            <line number="55" hits="3" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="622" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="56" hits="3" branch="False" />
+            <line number="57" hits="3" branch="False" />
+            <line number="59" hits="3" branch="False" />
+            <line number="60" hits="3" branch="False" />
+            <line number="62" hits="3" branch="False" />
+            <line number="63" hits="3" branch="False" />
+            <line number="64" hits="3" branch="False" />
+            <line number="65" hits="3" branch="False" />
+            <line number="66" hits="3" branch="False" />
+            <line number="67" hits="3" branch="False" />
+            <line number="68" hits="3" branch="False" />
+            <line number="69" hits="3" branch="False" />
+            <line number="70" hits="3" branch="False" />
+            <line number="71" hits="3" branch="False" />
+            <line number="72" hits="3" branch="False" />
+            <line number="73" hits="3" branch="False" />
+            <line number="75" hits="3" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="991" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="76" hits="2" branch="False" />
+            <line number="77" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="1010" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="78" hits="2" branch="False" />
+            <line number="79" hits="2" branch="False" />
+            <line number="80" hits="2" branch="False" />
+            <line number="81" hits="2" branch="False" />
+            <line number="82" hits="2" branch="False" />
+            <line number="86" hits="1" branch="False" />
+            <line number="87" hits="1" branch="False" />
+            <line number="88" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="1526" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="89" hits="1" branch="False" />
+            <line number="90" hits="1" branch="False" />
+            <line number="91" hits="1" branch="False" />
+            <line number="92" hits="1" branch="False" />
+            <line number="93" hits="0" branch="False" />
+            <line number="94" hits="0" branch="False" />
+            <line number="95" hits="0" branch="False" />
+            <line number="96" hits="0" branch="False" />
+            <line number="98" hits="4" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.MqttTopics" filename="MqttTopics.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name="DeviceCommand" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="26" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="Status" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="29" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="StatusOnline" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="32" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="26" hits="2" branch="False" />
+            <line number="29" hits="1" branch="False" />
+            <line number="32" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.OperationResult" filename="OperationResult.cs" line-rate="1" branch-rate="1" complexity="4">
+          <methods>
+            <method name="get_Success" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="62" branch="False" />
+              </lines>
+            </method>
+            <method name="get_ErrorMessage" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="17" branch="False" />
+              </lines>
+            </method>
+            <method name="Ok" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="12" hits="28" branch="False" />
+              </lines>
+            </method>
+            <method name="Fail" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="12" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="62" branch="False" />
+            <line number="10" hits="17" branch="False" />
+            <line number="12" hits="28" branch="False" />
+            <line number="13" hits="12" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.BcryptPasswordHasher" filename="PasswordHasher.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="Hash" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="Verify" signature="(System.String,System.String)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="13" hits="1" branch="False" />
+            <line number="14" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.PinCodeService" filename="PinCodeService.cs" line-rate="1" branch-rate="0.5" complexity="3">
+          <methods>
+            <method name="IsValidPin" signature="(System.String)" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="100" hits="8" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="6" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+              </lines>
+            </method>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.IDbContextFactory`1&lt;Smart_Home.Data.AppDbContext&gt;,Smart_Home.Service.IPasswordHasher)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="27" hits="8" branch="False" />
+                <line number="28" hits="8" branch="False" />
+                <line number="29" hits="8" branch="False" />
+                <line number="30" hits="8" branch="False" />
+                <line number="31" hits="8" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="100" hits="8" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="6" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="27" hits="8" branch="False" />
+            <line number="28" hits="8" branch="False" />
+            <line number="29" hits="8" branch="False" />
+            <line number="30" hits="8" branch="False" />
+            <line number="31" hits="8" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.PinCodeService/&lt;CreatePinAsync&gt;d__6" filename="PinCodeService.cs" line-rate="1" branch-rate="1" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="4">
+              <lines>
+                <line number="46" hits="6" branch="False" />
+                <line number="47" hits="6" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="59" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="48" hits="1" branch="False" />
+                <line number="50" hits="5" branch="False" />
+                <line number="51" hits="5" branch="False" />
+                <line number="52" hits="5" branch="False" />
+                <line number="53" hits="5" branch="False" />
+                <line number="54" hits="5" branch="False" />
+                <line number="55" hits="5" branch="False" />
+                <line number="56" hits="5" branch="False" />
+                <line number="57" hits="5" branch="False" />
+                <line number="58" hits="5" branch="False" />
+                <line number="59" hits="5" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="537" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="60" hits="6" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="46" hits="6" branch="False" />
+            <line number="47" hits="6" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="59" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="48" hits="1" branch="False" />
+            <line number="50" hits="5" branch="False" />
+            <line number="51" hits="5" branch="False" />
+            <line number="52" hits="5" branch="False" />
+            <line number="53" hits="5" branch="False" />
+            <line number="54" hits="5" branch="False" />
+            <line number="55" hits="5" branch="False" />
+            <line number="56" hits="5" branch="False" />
+            <line number="57" hits="5" branch="False" />
+            <line number="58" hits="5" branch="False" />
+            <line number="59" hits="5" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="537" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="60" hits="6" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.PinCodeService/&lt;DeactivatePinAsync&gt;d__8" filename="PinCodeService.cs" line-rate="1" branch-rate="0.75" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.75" complexity="4">
+              <lines>
+                <line number="88" hits="1" branch="False" />
+                <line number="89" hits="1" branch="False" />
+                <line number="90" hits="1" branch="False" />
+                <line number="91" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="389" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="93" hits="1" branch="False" />
+                <line number="94" hits="1" branch="False" />
+                <line number="95" hits="1" branch="False" />
+                <line number="96" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="601" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="97" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="88" hits="1" branch="False" />
+            <line number="89" hits="1" branch="False" />
+            <line number="90" hits="1" branch="False" />
+            <line number="91" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="389" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="93" hits="1" branch="False" />
+            <line number="94" hits="1" branch="False" />
+            <line number="95" hits="1" branch="False" />
+            <line number="96" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="601" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="97" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.PinCodeService/&lt;GetActiveUsersAsync&gt;d__4" filename="PinCodeService.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="34" hits="1" branch="False" />
+                <line number="35" hits="1" branch="False" />
+                <line number="36" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="466" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="37" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="34" hits="1" branch="False" />
+            <line number="35" hits="1" branch="False" />
+            <line number="36" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="466" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="37" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.PinCodeService/&lt;GetPinsAsync&gt;d__5" filename="PinCodeService.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="40" hits="1" branch="False" />
+                <line number="41" hits="1" branch="False" />
+                <line number="42" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="441" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="43" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="40" hits="1" branch="False" />
+            <line number="41" hits="1" branch="False" />
+            <line number="42" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="441" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="43" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.PinCodeService/&lt;UpdatePinAsync&gt;d__7" filename="PinCodeService.cs" line-rate="0.9473" branch-rate="0.9" complexity="10">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.9473" branch-rate="0.9" complexity="10">
+              <lines>
+                <line number="63" hits="3" branch="False" />
+                <line number="64" hits="3" branch="False" />
+                <line number="65" hits="3" branch="True" condition-coverage="75% (3/4)">
+                  <conditions>
+                    <condition number="73" type="jump" coverage="100%" />
+                    <condition number="94" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="66" hits="0" branch="False" />
+                <line number="68" hits="3" branch="False" />
+                <line number="69" hits="3" branch="False" />
+                <line number="70" hits="4" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="507" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="72" hits="2" branch="False" />
+                <line number="73" hits="2" branch="False" />
+                <line number="74" hits="2" branch="False" />
+                <line number="76" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="598" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="77" hits="1" branch="False" />
+                <line number="78" hits="1" branch="False" />
+                <line number="79" hits="1" branch="False" />
+                <line number="80" hits="1" branch="False" />
+                <line number="81" hits="1" branch="False" />
+                <line number="83" hits="2" branch="False" />
+                <line number="84" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="826" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="85" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="63" hits="3" branch="False" />
+            <line number="64" hits="3" branch="False" />
+            <line number="65" hits="3" branch="True" condition-coverage="75% (3/4)">
+              <conditions>
+                <condition number="73" type="jump" coverage="100%" />
+                <condition number="94" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="66" hits="0" branch="False" />
+            <line number="68" hits="3" branch="False" />
+            <line number="69" hits="3" branch="False" />
+            <line number="70" hits="4" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="507" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="72" hits="2" branch="False" />
+            <line number="73" hits="2" branch="False" />
+            <line number="74" hits="2" branch="False" />
+            <line number="76" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="598" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="77" hits="1" branch="False" />
+            <line number="78" hits="1" branch="False" />
+            <line number="79" hits="1" branch="False" />
+            <line number="80" hits="1" branch="False" />
+            <line number="81" hits="1" branch="False" />
+            <line number="83" hits="2" branch="False" />
+            <line number="84" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="826" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="85" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.RfidCardService" filename="RfidCardService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.IDbContextFactory`1&lt;Smart_Home.Data.AppDbContext&gt;)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="23" hits="20" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="23" hits="20" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.RfidCardService/&lt;CreateCardAsync&gt;d__4" filename="RfidCardService.cs" line-rate="1" branch-rate="1" complexity="10">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="10">
+              <lines>
+                <line number="38" hits="10" branch="False" />
+                <line number="39" hits="10" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="71" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="40" hits="1" branch="False" />
+                <line number="42" hits="9" branch="False" />
+                <line number="43" hits="9" branch="False" />
+                <line number="44" hits="9" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="525" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="45" hits="1" branch="False" />
+                <line number="47" hits="8" branch="True" condition-coverage="100% (4/4)">
+                  <conditions>
+                    <condition number="594" type="jump" coverage="100%" />
+                    <condition number="661" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="48" hits="8" branch="False" />
+                <line number="49" hits="8" branch="False" />
+                <line number="50" hits="8" branch="False" />
+                <line number="51" hits="8" branch="False" />
+                <line number="52" hits="8" branch="False" />
+                <line number="53" hits="8" branch="False" />
+                <line number="54" hits="8" branch="False" />
+                <line number="55" hits="8" branch="False" />
+                <line number="56" hits="8" branch="False" />
+                <line number="57" hits="8" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="852" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="58" hits="10" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="38" hits="10" branch="False" />
+            <line number="39" hits="10" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="71" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="40" hits="1" branch="False" />
+            <line number="42" hits="9" branch="False" />
+            <line number="43" hits="9" branch="False" />
+            <line number="44" hits="9" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="525" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="45" hits="1" branch="False" />
+            <line number="47" hits="8" branch="True" condition-coverage="100% (4/4)">
+              <conditions>
+                <condition number="594" type="jump" coverage="100%" />
+                <condition number="661" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="48" hits="8" branch="False" />
+            <line number="49" hits="8" branch="False" />
+            <line number="50" hits="8" branch="False" />
+            <line number="51" hits="8" branch="False" />
+            <line number="52" hits="8" branch="False" />
+            <line number="53" hits="8" branch="False" />
+            <line number="54" hits="8" branch="False" />
+            <line number="55" hits="8" branch="False" />
+            <line number="56" hits="8" branch="False" />
+            <line number="57" hits="8" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="852" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="58" hits="10" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.RfidCardService/&lt;DeactivateCardAsync&gt;d__6" filename="RfidCardService.cs" line-rate="1" branch-rate="0.75" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.75" complexity="4">
+              <lines>
+                <line number="85" hits="1" branch="False" />
+                <line number="86" hits="1" branch="False" />
+                <line number="87" hits="1" branch="False" />
+                <line number="88" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="389" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="90" hits="1" branch="False" />
+                <line number="91" hits="1" branch="False" />
+                <line number="92" hits="1" branch="False" />
+                <line number="93" hits="1" branch="False" />
+                <line number="94" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="623" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="95" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="85" hits="1" branch="False" />
+            <line number="86" hits="1" branch="False" />
+            <line number="87" hits="1" branch="False" />
+            <line number="88" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="389" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="90" hits="1" branch="False" />
+            <line number="91" hits="1" branch="False" />
+            <line number="92" hits="1" branch="False" />
+            <line number="93" hits="1" branch="False" />
+            <line number="94" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="623" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="95" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.RfidCardService/&lt;GetActiveUsersAsync&gt;d__2" filename="RfidCardService.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="26" hits="1" branch="False" />
+                <line number="27" hits="1" branch="False" />
+                <line number="28" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="466" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="29" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="26" hits="1" branch="False" />
+            <line number="27" hits="1" branch="False" />
+            <line number="28" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="466" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="29" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.RfidCardService/&lt;GetCardsAsync&gt;d__3" filename="RfidCardService.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="32" hits="1" branch="False" />
+                <line number="33" hits="1" branch="False" />
+                <line number="34" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="441" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="35" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="32" hits="1" branch="False" />
+            <line number="33" hits="1" branch="False" />
+            <line number="34" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="441" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="35" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.RfidCardService/&lt;UpdateCardAsync&gt;d__5" filename="RfidCardService.cs" line-rate="0.9444" branch-rate="0.7142000000000001" complexity="14">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.9444" branch-rate="0.7142000000000001" complexity="14">
+              <lines>
+                <line number="61" hits="3" branch="False" />
+                <line number="62" hits="3" branch="False" />
+                <line number="63" hits="3" branch="False" />
+                <line number="64" hits="3" branch="False" />
+                <line number="65" hits="4" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="499" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="67" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="840" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="68" hits="1" branch="False" />
+                <line number="70" hits="1" branch="False" />
+                <line number="71" hits="1" branch="False" />
+                <line number="72" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="920" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="73" hits="1" branch="False" />
+                <line number="74" hits="1" branch="False" />
+                <line number="75" hits="1" branch="False" />
+                <line number="77" hits="2" branch="True" condition-coverage="50% (2/4)">
+                  <conditions>
+                    <condition number="1006" type="jump" coverage="50%" />
+                    <condition number="1024" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="78" hits="0" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="1070" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="80" hits="1" branch="False" />
+                <line number="81" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="1248" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="82" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="61" hits="3" branch="False" />
+            <line number="62" hits="3" branch="False" />
+            <line number="63" hits="3" branch="False" />
+            <line number="64" hits="3" branch="False" />
+            <line number="65" hits="4" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="499" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="67" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="840" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="68" hits="1" branch="False" />
+            <line number="70" hits="1" branch="False" />
+            <line number="71" hits="1" branch="False" />
+            <line number="72" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="920" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="73" hits="1" branch="False" />
+            <line number="74" hits="1" branch="False" />
+            <line number="75" hits="1" branch="False" />
+            <line number="77" hits="2" branch="True" condition-coverage="50% (2/4)">
+              <conditions>
+                <condition number="1006" type="jump" coverage="50%" />
+                <condition number="1024" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="78" hits="0" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="1070" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="80" hits="1" branch="False" />
+            <line number="81" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="1248" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="82" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.UserService" filename="UserService.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.IDbContextFactory`1&lt;Smart_Home.Data.AppDbContext&gt;)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="20" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="24" hits="20" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.UserService/&lt;CreateUserAsync&gt;d__5" filename="UserService.cs" line-rate="1" branch-rate="1" complexity="8">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="8">
+              <lines>
+                <line number="45" hits="9" branch="False" />
+                <line number="46" hits="9" branch="True" condition-coverage="100% (4/4)">
+                  <conditions>
+                    <condition number="69" type="jump" coverage="100%" />
+                    <condition number="87" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="47" hits="1" branch="False" />
+                <line number="49" hits="8" branch="False" />
+                <line number="50" hits="8" branch="False" />
+                <line number="51" hits="8" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="541" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="52" hits="1" branch="False" />
+                <line number="54" hits="7" branch="False" />
+                <line number="55" hits="7" branch="False" />
+                <line number="56" hits="7" branch="False" />
+                <line number="57" hits="7" branch="False" />
+                <line number="58" hits="7" branch="False" />
+                <line number="59" hits="7" branch="False" />
+                <line number="60" hits="7" branch="False" />
+                <line number="61" hits="7" branch="False" />
+                <line number="62" hits="7" branch="False" />
+                <line number="63" hits="7" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="814" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="64" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="45" hits="9" branch="False" />
+            <line number="46" hits="9" branch="True" condition-coverage="100% (4/4)">
+              <conditions>
+                <condition number="69" type="jump" coverage="100%" />
+                <condition number="87" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="47" hits="1" branch="False" />
+            <line number="49" hits="8" branch="False" />
+            <line number="50" hits="8" branch="False" />
+            <line number="51" hits="8" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="541" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="52" hits="1" branch="False" />
+            <line number="54" hits="7" branch="False" />
+            <line number="55" hits="7" branch="False" />
+            <line number="56" hits="7" branch="False" />
+            <line number="57" hits="7" branch="False" />
+            <line number="58" hits="7" branch="False" />
+            <line number="59" hits="7" branch="False" />
+            <line number="60" hits="7" branch="False" />
+            <line number="61" hits="7" branch="False" />
+            <line number="62" hits="7" branch="False" />
+            <line number="63" hits="7" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="814" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="64" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.UserService/&lt;GetActiveUsersAsync&gt;d__4" filename="UserService.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="39" hits="1" branch="False" />
+                <line number="40" hits="1" branch="False" />
+                <line number="41" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="466" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="42" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="39" hits="1" branch="False" />
+            <line number="40" hits="1" branch="False" />
+            <line number="41" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="466" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="42" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.UserService/&lt;GetRolesAsync&gt;d__2" filename="UserService.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="27" hits="1" branch="False" />
+                <line number="28" hits="1" branch="False" />
+                <line number="29" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="373" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="30" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="27" hits="1" branch="False" />
+            <line number="28" hits="1" branch="False" />
+            <line number="29" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="373" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="30" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.UserService/&lt;GetUsersAsync&gt;d__3" filename="UserService.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="33" hits="1" branch="False" />
+                <line number="34" hits="1" branch="False" />
+                <line number="35" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="441" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="36" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="33" hits="1" branch="False" />
+            <line number="34" hits="1" branch="False" />
+            <line number="35" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="441" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="36" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.UserService/&lt;SoftDeleteUserAsync&gt;d__7" filename="UserService.cs" line-rate="1" branch-rate="1" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="4">
+              <lines>
+                <line number="88" hits="2" branch="False" />
+                <line number="89" hits="2" branch="False" />
+                <line number="90" hits="2" branch="False" />
+                <line number="91" hits="3" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="389" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="93" hits="1" branch="False" />
+                <line number="94" hits="1" branch="False" />
+                <line number="95" hits="1" branch="False" />
+                <line number="96" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="605" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="97" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="88" hits="2" branch="False" />
+            <line number="89" hits="2" branch="False" />
+            <line number="90" hits="2" branch="False" />
+            <line number="91" hits="3" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="389" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="93" hits="1" branch="False" />
+            <line number="94" hits="1" branch="False" />
+            <line number="95" hits="1" branch="False" />
+            <line number="96" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="605" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="97" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="Smart_Home.Service.UserService/&lt;UpdateUserAsync&gt;d__6" filename="UserService.cs" line-rate="0.9375" branch-rate="0.8" complexity="10">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.9375" branch-rate="0.8" complexity="10">
+              <lines>
+                <line number="67" hits="3" branch="False" />
+                <line number="68" hits="3" branch="True" condition-coverage="50% (2/4)">
+                  <conditions>
+                    <condition number="118" type="jump" coverage="50%" />
+                    <condition number="136" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="69" hits="0" branch="False" />
+                <line number="71" hits="3" branch="False" />
+                <line number="72" hits="3" branch="False" />
+                <line number="73" hits="3" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="688" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="74" hits="1" branch="False" />
+                <line number="76" hits="2" branch="False" />
+                <line number="77" hits="3" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="892" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="79" hits="1" branch="False" />
+                <line number="80" hits="1" branch="False" />
+                <line number="81" hits="1" branch="False" />
+                <line number="82" hits="1" branch="False" />
+                <line number="83" hits="1" branch="False" />
+                <line number="84" hits="1" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="1156" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="85" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="67" hits="3" branch="False" />
+            <line number="68" hits="3" branch="True" condition-coverage="50% (2/4)">
+              <conditions>
+                <condition number="118" type="jump" coverage="50%" />
+                <condition number="136" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="69" hits="0" branch="False" />
+            <line number="71" hits="3" branch="False" />
+            <line number="72" hits="3" branch="False" />
+            <line number="73" hits="3" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="688" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="74" hits="1" branch="False" />
+            <line number="76" hits="2" branch="False" />
+            <line number="77" hits="3" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="892" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="79" hits="1" branch="False" />
+            <line number="80" hits="1" branch="False" />
+            <line number="81" hits="1" branch="False" />
+            <line number="82" hits="1" branch="False" />
+            <line number="83" hits="1" branch="False" />
+            <line number="84" hits="1" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="1156" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="85" hits="3" branch="False" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

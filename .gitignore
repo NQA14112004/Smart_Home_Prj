@@ -1,0 +1,20 @@
+# .NET build output
+bin/
+obj/
+
+# IDE / user-specific
+.vs/
+*.user
+*.suo
+
+# Secrets — never commit (the leaked DB password was moved to user-secrets/env)
+**/appsettings.*.json
+!**/appsettings.example.json
+**/secrets.json
+*.env
+
+# TLS material — only the PUBLIC ca.crt may be distributed to clients; keys/server cert stay on the broker
+**/certs/*.key
+**/certs/*.pem
+**/certs/server.crt
+**/*.pfx

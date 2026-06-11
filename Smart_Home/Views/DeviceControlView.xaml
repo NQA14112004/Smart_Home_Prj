@@ -1,0 +1,117 @@
+<UserControl x:Class="Smart_Home.View.DeviceControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Style TargetType="ToggleButton" x:Key="DeviceToggleStyle">
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="Border" CornerRadius="15" Background="#444">
+                            <Ellipse x:Name="Knob" Width="26" Height="26" Fill="White" HorizontalAlignment="Left" Margin="2,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#007ACC"/>
+                                <Setter TargetName="Knob" Property="HorizontalAlignment" Value="Right"/>
+                                <Setter TargetName="Knob" Property="Margin" Value="0,0,2,0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Border" x:Key="DeviceCardStyle">
+            <Setter Property="Background" Value="{StaticResource BgLight}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="120"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Opacity="0.3" BlurRadius="5" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Điều Khiển Thiết Bị (Device Control)" Foreground="White" FontSize="28" FontWeight="SemiBold" Margin="10,10,0,20"/>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <WrapPanel Margin="0,0,0,20">
+                <Border Style="{StaticResource DeviceCardStyle}">
+                    <Grid Margin="20">
+                        <StackPanel>
+                            <TextBlock Text="Đèn Phòng Khách" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Text="home.light.living_room" Foreground="#AAAAAA" FontSize="12" Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <ToggleButton Style="{StaticResource DeviceToggleStyle}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                      IsChecked="{Binding LivingRoomLightOn, Mode=TwoWay}"
+                                      Command="{Binding ToggleDeviceCommand}" CommandParameter="home.light.living_room"/>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource DeviceCardStyle}">
+                    <Grid Margin="20">
+                        <StackPanel>
+                            <TextBlock Text="Đèn Phòng Ngủ 1" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Text="home.light.bedroom_1" Foreground="#AAAAAA" FontSize="12" Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <ToggleButton Style="{StaticResource DeviceToggleStyle}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                      IsChecked="{Binding Bedroom1LightOn, Mode=TwoWay}"
+                                      Command="{Binding ToggleDeviceCommand}" CommandParameter="home.light.bedroom_1"/>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource DeviceCardStyle}">
+                    <Grid Margin="20">
+                        <StackPanel>
+                            <TextBlock Text="Đèn Phòng Ngủ 2" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Text="home.light.bedroom_2" Foreground="#AAAAAA" FontSize="12" Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <ToggleButton Style="{StaticResource DeviceToggleStyle}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                      IsChecked="{Binding Bedroom2LightOn, Mode=TwoWay}"
+                                      Command="{Binding ToggleDeviceCommand}" CommandParameter="home.light.bedroom_2"/>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource DeviceCardStyle}">
+                    <Grid Margin="20">
+                        <StackPanel>
+                            <TextBlock Text="Quạt Thông Gió" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Text="home.fan.living_room" Foreground="#AAAAAA" FontSize="12" Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <ToggleButton Style="{StaticResource DeviceToggleStyle}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                      IsChecked="{Binding FanOn, Mode=TwoWay}"
+                                      Command="{Binding ToggleDeviceCommand}" CommandParameter="home.fan.living_room"/>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource DeviceCardStyle}">
+                    <Grid Margin="20">
+                        <StackPanel>
+                            <TextBlock Text="Đèn LED Ngoài Trời" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Text="home.light.outdoor_led" Foreground="#AAAAAA" FontSize="12" Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <ToggleButton Style="{StaticResource DeviceToggleStyle}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                      IsChecked="{Binding OutdoorLedOn, Mode=TwoWay}"
+                                      Command="{Binding ToggleDeviceCommand}" CommandParameter="home.light.outdoor_led"/>
+                    </Grid>
+                </Border>
+            </WrapPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

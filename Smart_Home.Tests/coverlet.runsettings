@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <!-- Measure the unit-testable service layer (refactor target of PHAN_TICH 1.4 #4). -->
+          <Include>[Smart_Home]Smart_Home.Service.*</Include>
+          <!-- Transport / UI-thread infrastructure: needs an integration harness (real broker / STA dispatcher),
+               out of unit-test scope. -->
+          <Exclude>[Smart_Home]Smart_Home.Service.MqttClientService,[Smart_Home]Smart_Home.Service.NodePresenceService</Exclude>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
