@@ -4,7 +4,7 @@ Phần phần mềm chạy trên **Raspberry Pi 5** làm "hub luôn-bật" của
 Đợt này triển khai **nền tảng**: broker Mosquitto (auth + TLS) và **bridge MQTT→PostgreSQL** —
 thành phần ghi dữ liệu luôn-bật mà app WPF còn thiếu. Nhận diện khuôn mặt là bước kế tiếp.
 
-> Bối cảnh & lộ trình đầy đủ: `../Smart_Home/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md` (Phần 5, GĐ C).
+> Bối cảnh & lộ trình đầy đủ: `../docs/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md` (Phần 5, GĐ C).
 
 ## Bridge làm gì
 

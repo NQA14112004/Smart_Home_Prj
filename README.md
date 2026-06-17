@@ -3,7 +3,7 @@
 Hệ thống an ninh nhà thông minh gồm **ứng dụng quản trị WPF trên Windows** (đã hoàn thiện), kết nối với các node phần cứng **ESP32** và **Raspberry Pi 5** (nhận diện khuôn mặt) qua **MQTT** — phần thiết bị đang trong lộ trình phát triển.
 
 > 📄 Tài liệu chi tiết:
-> - [`Smart_Home/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md`](Smart_Home/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md) — phân tích codebase, kiến trúc đề xuất, sơ đồ chân ESP32, lộ trình & chi phí.
+> - [`docs/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md`](docs/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md) — phân tích codebase, kiến trúc đề xuất, sơ đồ chân ESP32, lộ trình & chi phí.
 > - [`SECURITY.md`](SECURITY.md) — quản lý secrets, cấu hình MQTT auth/TLS, các việc bảo mật còn tồn đọng.
 
 ---
@@ -58,11 +58,18 @@ Hệ thống an ninh nhà thông minh gồm **ứng dụng quản trị WPF trê
 
 ```text
 C:\Project
-├── Smart_Home.slnx                  # Solution
+├── Smart_Home.slnx                  # Solution (Smart_Home + Smart_Home.Tests)
+├── README.md                        # Tài liệu tổng quan (file này)
 ├── SECURITY.md                      # Hướng dẫn secrets, MQTT auth/TLS
-├── broker-setup/
-│   └── auth.conf                    # Cấu hình Mosquitto: tắt anonymous, password_file,
-│                                    #   listener bind 127.0.0.1:1883
+├── docs/
+│   └── PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md  # Phân tích codebase & lộ trình toàn hệ thống
+├── database/
+│   ├── README.md                    # Nguồn schema & cách dump lại
+│   └── Smart_home_security_database.sql     # Schema PostgreSQL (0 byte — cần pg_dump lại)
+├── infra/
+│   └── broker-setup/                # Cấu hình Mosquitto cho máy DEV (PC Windows)
+│       └── auth.conf                # allow_anonymous false, password_file, listener 127.0.0.1:1883
+│                                    #   (passwd đã gỡ khỏi git + gitignore)
 ├── Smart_Home/                      # ===== APP WPF CHÍNH =====
 │   ├── App.xaml / App.xaml.cs       # Khởi động: nạp .env → build IConfiguration →
 │   │                                #   đăng ký DI (DbContextFactory, services, ViewModels)
@@ -124,17 +131,24 @@ C:\Project
 │   │   ├── AlertsView.xaml          # Bảng cảnh báo
 │   │   └── DeviceControlView.xaml   # Điều khiển đèn/quạt/khóa
 │   │
-│   ├── Helpers/
-│   │   └── BoolToColorConverter.cs  # Converter XAML (trạng thái → màu)
-│   │
-│   └── Smart_home_security_database.sql  # ⚠️ Hiện 0 byte — cần dump lại (pg_dump --schema-only)
+│   └── Helpers/
+│       └── BoolToColorConverter.cs  # Converter XAML (trạng thái → màu)
 │
-└── Smart_Home.Tests/                # ===== UNIT TEST (xUnit + EF InMemory) =====
-    ├── CrudServiceTests.cs          # Test User/RFID/PIN service
-    ├── DeviceAndQueryServiceTests.cs# Test Device/AccessLog/Alert/Dashboard service
-    ├── UnitTests.cs                 # Test PasswordHasher, OperationResult, helpers
-    ├── TestSupport.cs               # Hạ tầng test chung (factory InMemory DB)
-    └── coverlet.runsettings         # Cấu hình đo coverage
+├── Smart_Home.Tests/                # ===== UNIT TEST (xUnit + EF InMemory) =====
+│   ├── CrudServiceTests.cs          # Test User/RFID/PIN service
+│   ├── DeviceAndQueryServiceTests.cs# Test Device/AccessLog/Alert/Dashboard service
+│   ├── UnitTests.cs                 # Test PasswordHasher, OperationResult, helpers
+│   ├── TestSupport.cs               # Hạ tầng test chung (factory InMemory DB)
+│   └── coverlet.runsettings         # Cấu hình đo coverage
+│
+└── Pi5/                             # ===== HUB RASPBERRY PI 5 (GĐ C) — bridge MQTT→PostgreSQL =====
+    ├── bridge/                      # Package Python: handlers, db, presence, mqtt_client, config, main
+    ├── tests/                       # pytest cho handlers (thuần, không cần DB/broker)
+    ├── tools/simulate.py            # Bơm message giả test end-to-end (không cần phần cứng)
+    ├── mosquitto/                   # Cấu hình broker cho Pi (auth + TLS + LAN)
+    ├── systemd/                     # Unit chạy bridge như service luôn-bật
+    ├── scripts/                     # setup_pi.sh, gen_certs.sh, migrate_db.md
+    └── README.md                    # Hướng dẫn riêng cho Pi 5
 ```
 
 > **Lưu ý quy ước**: thư mục là `Views/`, `Services/` (số nhiều) nhưng namespace giữ `Smart_Home.View`, `Smart_Home.Service` (số ít) — **có chủ đích** để tránh sửa hàng loạt `x:Class`/`clr-namespace` trong XAML. Đừng "sửa" điều này.
@@ -189,7 +203,7 @@ copy .env.example .env
 # Sửa .env: SMART_HOME_CONNECTION_STRING, MQTT_USERNAME, MQTT_PASSWORD
 # (Hoặc dùng dotnet user-secrets — xem SECURITY.md §2)
 
-# 2. Chạy Mosquitto với auth bắt buộc (cấu hình mẫu trong broker-setup/auth.conf)
+# 2. Chạy Mosquitto với auth bắt buộc (cấu hình mẫu trong infra/broker-setup/auth.conf)
 #    Tạo user: mosquitto_passwd -c <đường-dẫn-passwd> wpfclient
 
 # 3. Build & chạy app
@@ -214,7 +228,7 @@ Thứ tự ưu tiên đọc cấu hình: **biến môi trường / `.env` → us
 | **GĐ D** | Cảnh báo cạy/phá cửa: sensor fusion (reed + SW-420 + MPU6050) trên ESP32, còi cục bộ <100 ms | ⏳ |
 | **GĐ E** | Nâng cấp tùy chọn (service layer ✅, 47 test ✅, node presence ✅; còn liveness nâng cao, push notification) | 🟡 Một phần |
 
-Chi tiết từng giai đoạn (việc cần làm, tiêu chí hoàn thành, BOM linh kiện ~170–250 USD, sơ đồ chân GPIO, cấu trúc firmware): xem [`PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md`](Smart_Home/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md) Phần 5–7.
+Chi tiết từng giai đoạn (việc cần làm, tiêu chí hoàn thành, BOM linh kiện ~170–250 USD, sơ đồ chân GPIO, cấu trúc firmware): xem [`PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md`](docs/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md) Phần 5–7.
 
 ---
 
@@ -223,8 +237,8 @@ Chi tiết từng giai đoạn (việc cần làm, tiêu chí hoàn thành, BOM 
 Xem chi tiết tại [`SECURITY.md`](SECURITY.md). Tóm tắt các việc **bắt buộc làm**:
 
 1. **Xoay vòng mật khẩu PostgreSQL cũ** — bản cũ của SECURITY.md chứa mật khẩu dạng chữ và đã được push lên GitHub (`ALTER ROLE postgres WITH PASSWORD '<mới>'` rồi cập nhật `.env`).
-2. **Gỡ `broker-setup/passwd` khỏi git** (`git rm --cached`) + thêm vào `.gitignore`, rồi **đổi mật khẩu MQTT** (`mosquitto_passwd`).
-3. **Khôi phục `Smart_home_security_database.sql`** (đang 0 byte): `pg_dump --schema-only Smart_Home_db > Smart_home_security_database.sql`.
+2. **Đổi mật khẩu MQTT** — `infra/broker-setup/passwd` **đã được gỡ khỏi git + gitignore** (chuẩn hoá 2026-06-17); vì hash cũ đã push lên GitHub, vẫn cần đổi mật khẩu: `mosquitto_passwd -c "C:\Program Files\Mosquitto\passwd" wpfclient` rồi cập nhật `.env`.
+3. **Khôi phục schema** `database/Smart_home_security_database.sql` (đang 0 byte): `pg_dump --schema-only Smart_Home_db > database/Smart_home_security_database.sql` (xem `database/README.md`).
 4. **Bật TLS trên broker** khi mở listener ra LAN / chuyển broker lên Pi 5 (hướng dẫn ở SECURITY.md §4).
 
-**Đã làm**: secrets ra khỏi source (`.env` + `EnvFileLoader`), Mosquitto auth bắt buộc bind localhost, PIN hash BCrypt, client MQTT hỗ trợ TLS + pin CA self-signed.
+**Đã làm**: secrets ra khỏi source (`.env` + `EnvFileLoader`), Mosquitto auth bắt buộc bind localhost, PIN hash BCrypt, client MQTT hỗ trợ TLS + pin CA self-signed; chuẩn hoá cấu trúc repo (`docs/`, `database/`, `infra/broker-setup/`) + gỡ `passwd`/`TestResults/` khỏi git (2026-06-17).

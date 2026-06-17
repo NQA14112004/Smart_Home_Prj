@@ -2,6 +2,9 @@
 bin/
 obj/
 
+# Test / coverage output
+[Tt]est[Rr]esults/
+
 # IDE / user-specific
 .vs/
 *.user
@@ -18,3 +21,6 @@ obj/
 **/certs/*.pem
 **/certs/server.crt
 **/*.pfx
+
+# Mosquitto password file (PBKDF2 hash) — never commit; rotate via mosquitto_passwd
+**/broker-setup/passwd

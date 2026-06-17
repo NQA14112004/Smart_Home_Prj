@@ -47,12 +47,12 @@ nếu muốn xóa triệt để phải rewrite history + force-push, nhưng **đ
 ## 4. Bật MQTT auth + TLS trên Mosquitto (Raspberry Pi 5 / broker host)
 
 > **Trạng thái (2026-06-11)**: Mosquitto local (Windows, dev) **đã bật auth**: `allow_anonymous false`
-> + `password_file` (user `wpfclient`), listener bind `127.0.0.1:1883` — xem `broker-setup/auth.conf`.
+> + `password_file` (user `wpfclient`), listener bind `127.0.0.1:1883` — xem `infra/broker-setup/auth.conf`.
 > WPF đã kết nối thành công bằng credential từ `.env`. **TLS chưa bật** — chỉ cần khi listener mở ra
 > LAN / chuyển broker lên Pi 5 (làm theo hướng dẫn dưới đây).
 >
-> ⚠️ File `broker-setup/passwd` (hash PBKDF2) đang nằm trong git **và đã push lên GitHub** — nên
-> `git rm --cached broker-setup/passwd` + thêm vào `.gitignore`, rồi **đổi mật khẩu MQTT**
+> ⚠️ File `infra/broker-setup/passwd` (hash PBKDF2) đang nằm trong git **và đã push lên GitHub** — nên
+> `git rm --cached infra/broker-setup/passwd` + thêm vào `.gitignore`, rồi **đổi mật khẩu MQTT**
 > (`mosquitto_passwd -c "C:\Program Files\Mosquitto\passwd" wpfclient` + cập nhật `.env`).
 
 ### Tạo CA + chứng chỉ server (self-signed)

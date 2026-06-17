@@ -5,7 +5,7 @@
 > **bridge MQTT→DB** (thư mục `Pi5/bridge/`).
 >
 > Phần cứng đã có: **Raspberry Pi 5 8GB**. Phần nhận diện khuôn mặt để **giai đoạn sau** (xem §11).
-> Tổng quan kiến trúc & lý do: `../Smart_Home/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md`.
+> Tổng quan kiến trúc & lý do: `../docs/PHAN_TICH_VA_LO_TRINH_PHAT_TRIEN.md`.
 
 ---
 
