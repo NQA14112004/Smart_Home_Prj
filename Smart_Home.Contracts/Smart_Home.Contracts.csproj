@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Pure DTO contract shared by the ASP.NET Core Web API (Smart_Home.Api) and the MAUI mobile app
+    (Smart_Home.Mobile). Deliberately has NO EF Core / Npgsql / platform dependencies so the mobile
+    app stays lean. The API maps EF entities (Smart_Home.Core) <-> these DTOs.
+    See docs/THIET_KE_API_MOBILE.md.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Smart_Home.Contracts</RootNamespace>
+  </PropertyGroup>
+
+</Project>

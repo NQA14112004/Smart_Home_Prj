@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Shared server-side domain library (net8.0, no WPF/platform deps) referenced by both the WPF app
+    and the ASP.NET Core Web API. Holds EF Core entities, AppDbContext, the data-access service layer,
+    and the MQTT client/topics. See docs/THIET_KE_API_MOBILE.md (GĐ F1).
+    Namespaces are intentionally kept as Smart_Home.Models / .Data / .Service so WPF code is unchanged.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Smart_Home</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+    <PackageReference Include="MQTTnet" Version="4.3.7.1207" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="4.3.7.1207" />
+  </ItemGroup>
+
+</Project>

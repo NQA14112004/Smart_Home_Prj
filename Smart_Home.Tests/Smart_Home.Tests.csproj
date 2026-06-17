@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Unit tests target the shared Core library directly (net8.0, no WPF dependency). -->
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>false</IsPackable>
@@ -23,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Smart_Home\Smart_Home.csproj" />
+    <ProjectReference Include="..\Smart_Home.Core\Smart_Home.Core.csproj" />
   </ItemGroup>
 
 </Project>
