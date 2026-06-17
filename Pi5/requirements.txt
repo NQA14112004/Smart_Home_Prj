@@ -1,0 +1,5 @@
+# Smart Home Pi 5 bridge - runtime dependencies (Python 3.9+ on Raspberry Pi OS)
+paho-mqtt>=2.0,<3
+psycopg[binary]>=3.1,<4
+PyYAML>=6.0,<7
+python-dotenv>=1.0,<2

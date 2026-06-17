@@ -1,0 +1,27 @@
+# Smart Home MQTT->DB bridge service.
+# Install:
+#   sudo cp systemd/smarthome-bridge.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now smarthome-bridge
+# Logs: journalctl -u smarthome-bridge -f
+#
+# Adjust User= and the two paths below to match your deployment.
+
+[Unit]
+Description=Smart Home MQTT to PostgreSQL bridge
+After=network-online.target mosquitto.service postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/smarthome/Pi5
+ExecStart=/home/pi/smarthome/Pi5/.venv/bin/python -m bridge.main
+Restart=on-failure
+RestartSec=5
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

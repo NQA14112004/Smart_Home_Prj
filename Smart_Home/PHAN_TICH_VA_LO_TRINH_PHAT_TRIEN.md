@@ -3,7 +3,7 @@
 > Tài liệu phân tích hiện trạng, đề xuất cải tiến **tối ưu chi phí**, và kiến trúc tích hợp
 > **Raspberry Pi 5** (nhận diện khuôn mặt mở khóa + cảnh báo cạy/phá cửa).
 >
-> *Ngày tạo: 2026-06-09 · Đối chiếu với: `wpf_dasboard_preparation.md` · Định hướng: tiết kiệm tối đa*
+> *Ngày tạo: 2026-06-09 · Cập nhật lần cuối: **2026-06-11** · Đối chiếu với: `wpf_dasboard_preparation.md` · Định hướng: tiết kiệm tối đa*
 > *Độ tin cậy: Cao cho phần codebase (đọc trực tiếp); Trung bình–Cao cho giá phần cứng (có trích dẫn, giá thị trường biến động).*
 
 ---
@@ -18,9 +18,12 @@
 - **Codebase đã sẵn "móc nối" để cắm Pi 5**: cột `access_logs.method`, `alerts.alert_type`,
   `esp_nodes.node_type` đều là chuỗi tự do → chỉ cần thêm giá trị mới (`FACE_RECOGNITION`,
   `FORCED_ENTRY`, `raspberry_pi`), gần như **không phải đổi schema**.
-- **3 vấn đề cần vá sớm**: (1) **lệch quy ước MQTT topic** giữa tài liệu (`home/...`) và code thực tế
-  (`smarthome/...`); (2) **mật khẩu DB hardcode** trong `appsettings.json`; (3) **MQTT không
-  auth/không TLS**.
+- **3 vấn đề phát hiện ban đầu — ✅ đã xử lý xong (2026-06-11)**: (1) lệch quy ước MQTT topic →
+  chuẩn hóa về `smarthome/` trong `Services/MqttTopics.cs`; (2) mật khẩu DB hardcode → chuyển sang
+  `.env`/user-secrets/biến môi trường (⚠️ mật khẩu cũ **vẫn phải xoay vòng** — nó từng nằm trong
+  SECURITY.md và đã được push lên GitHub, xem SECURITY.md §3); (3) MQTT không auth → Mosquitto local đã bật **auth bắt buộc**
+  (`broker-setup/auth.conf`, listener `127.0.0.1:1883`), WPF kết nối bằng credential từ `.env`.
+  TLS dời sang lúc chuyển broker lên Pi 5 / mở ra LAN.
 - **Định hướng chi phí**: dùng **Raspberry Pi 5 làm hub luôn-bật** (Mosquitto + DB + nhận diện khuôn
   mặt), **CPU-only không cần Hailo**, **Mosquitto self-host** thay cloud, chống giả mạo bằng blink
   detection $0. **Tổng phần cứng ~170–250 USD, điện ~8 USD/năm, phần mềm 0 USD.**
@@ -46,10 +49,10 @@
 | Hạng mục theo plan | Trạng thái | Bằng chứng trong code |
 |---|---|---|
 | GĐ1: DB + EF Core + AppDbContext | ✅ DONE | `Data/AppDbContext.cs` (12 `DbSet`), `Smart_home_security_database.sql` |
-| GĐ2: Dashboard | ✅ DONE | `ViewModels/DashboardViewModel.cs` (~246 dòng) + `View/DashboardView.xaml` |
+| GĐ2: Dashboard | ✅ DONE | `ViewModels/DashboardViewModel.cs` (~246 dòng) + `Views/DashboardView.xaml` |
 | GĐ3: CRUD User/RFID/PIN, khóa/gán thẻ | ✅ DONE | `UsersViewModel`, `RFIDCardsViewModel`, `PinCodesViewModel` |
 | GĐ4: Access Logs + Alerts + đánh dấu xử lý | ✅ DONE | `AccessLogsViewModel`, `AlertsViewModel` (lọc theo ngày) |
-| GĐ5: MQTT realtime | ✅ DONE (phía WPF) | `Service/MqttClientService.cs`, subscribe trong `DashboardViewModel` |
+| GĐ5: MQTT realtime | ✅ DONE (phía WPF) | `Services/MqttClientService.cs`, subscribe trong `DashboardViewModel` |
 | GĐ6: Điều khiển thiết bị qua MQTT | ✅ DONE (phía WPF) | `DeviceControlViewModel` publish `smarthome/{device_code}/set` |
 | Firmware ESP32 (cửa + nhà) | ❌ MISSING | **Không có** file `.ino/.cpp/.h`, không PlatformIO |
 | Nhận diện khuôn mặt / Raspberry Pi | ❌ MISSING | **Không có** file `.py`, không OpenCV/dlib/MediaPipe |
@@ -69,19 +72,32 @@
 
 ### 1.4. Điểm cần cải thiện
 
-> **Cập nhật 2026-06-10**: #1–#5 đã được xử lý trong code (chi tiết ở cột Trạng thái + ghi chú cuối mục).
-> Chỉ còn #6 (cosmetic) và một vài việc **vận hành** (xoay vòng mật khẩu thật, bật auth/TLS trên broker).
+> **Cập nhật 2026-06-11**: **toàn bộ #1–#6 đã xử lý xong** (cả phần code lẫn phần vận hành trên máy dev).
+> Mosquitto local đã bật auth; secrets đi qua `.env`/user-secrets; thư mục đã đổi `Views/`, `Services/`.
+> Còn 2 việc vận hành nhỏ: (1) **xoay vòng mật khẩu DB + MQTT cũ** (đã lộ qua commit push lên GitHub — chi tiết
+> ở ghi chú cuối mục); (2) **bật TLS trên broker** — dời sang GĐ C (khi chuyển broker lên Pi 5 / mở ra LAN).
 
 | Mức độ | Vấn đề | Trạng thái | Chi tiết |
 |---|---|---|---|
-| 🔴 CRITICAL | **Secrets hardcode** | ✅ Đã xử lý | Mật khẩu đã gỡ khỏi `appsettings.json` (để rỗng) + có `appsettings.example.json`. `App.xaml.cs` đọc theo thứ tự **user-secrets → env (`SMART_HOME_CONNECTION_STRING` / `ConnectionStrings__DefaultConnection`, `MQTT_USERNAME` / `MQTT_PASSWORD`) → appsettings**; `UserSecretsId` đã bật trong csproj. *Còn lại (vận hành): xoay vòng mật khẩu thật.* |
-| 🔴 CRITICAL | **MQTT không bảo mật** | ✅ Đã xử lý (phía WPF) | `MqttClientService` hỗ trợ TLS (`UseTls`, cổng 8883), xác thực user/pass, và **chỉ tin CA self-signed** qua `CustomRootTrust` (không tin toàn máy); `AllowUntrustedCertificates` chỉ cho DEV. *Còn lại (vận hành): bật auth/TLS trên Mosquitto.* |
-| 🟠 HIGH | **Lệch quy ước topic** | ✅ Đã xử lý | `Service/MqttTopics.cs` là **nguồn chân lý duy nhất** cho topic (prefix `smarthome/`), dùng ở Dashboard/DeviceControl/NodePresence; alias `home/...` chỉ còn để tra cứu (Phụ lục A). |
+| 🔴 CRITICAL | **Secrets hardcode** | ✅ Đã xử lý xong | Mật khẩu đã gỡ khỏi `appsettings.json` (để rỗng) + có `appsettings.example.json`. Thêm **`.env` + `EnvFileLoader.cs`**: nạp `.env` vào biến môi trường tiến trình lúc khởi động (env thật luôn thắng `.env`); `.env` đã gitignore, kèm template `.env.example`. Thứ tự ưu tiên: **env / `.env` → user-secrets → appsettings**. ⚠️ **Xác minh lại 2026-06-11**: `appsettings.json` được commit với `Password=` rỗng, **nhưng** bản cũ của SECURITY.md ghi mật khẩu dạng chữ và đã được **push lên GitHub** → mật khẩu cũ coi như đã lộ, **phải xoay vòng** (`ALTER ROLE postgres WITH PASSWORD ...` — xem SECURITY.md §3). |
+| 🔴 CRITICAL | **MQTT không bảo mật** | ✅ Đã xử lý (auth) | Phía WPF: `MqttClientService` hỗ trợ TLS (`UseTls`, cổng 8883), xác thực user/pass, **chỉ tin CA self-signed** qua `CustomRootTrust`; `AllowUntrustedCertificates` chỉ cho DEV. Phía broker (**2026-06-11**): Mosquitto local đã bật **`allow_anonymous false`** + `password_file` (user `wpfclient`), listener **bind `127.0.0.1:1883`** (xem `broker-setup/auth.conf`); WPF kết nối thành công bằng `MQTT_USERNAME`/`MQTT_PASSWORD` từ `.env`. *Còn lại: bật TLS + đổi bind sang IP LAN khi chuyển broker lên Pi 5 / có node ESP32 thật (GĐ C); với listener chỉ nghe localhost thì plaintext hiện chấp nhận được.* |
+| 🟠 HIGH | **Lệch quy ước topic** | ✅ Đã xử lý | `Services/MqttTopics.cs` là **nguồn chân lý duy nhất** cho topic (prefix `smarthome/`), dùng ở Dashboard/DeviceControl/NodePresence; alias `home/...` chỉ còn để tra cứu (Phụ lục A). |
 | 🟡 MEDIUM | **Business logic trong ViewModel** | ✅ Đã xử lý | Đã tách **service layer** (`UserService`, `PinCodeService`, `RfidCardService`, `DeviceService`, `AccessLogService`, `AlertService`, `DashboardService`, `IPasswordHasher`) trả `OperationResult`; **7 ViewModel** giờ chỉ gọi service (gỡ EF Core/BCrypt trực tiếp), đăng ký đầy đủ trong DI. **Test: 47 unit test (xUnit + EF InMemory) — 95.4% dòng / 85.8% nhánh** trên lớp service unit-test (dự án `Smart_Home.Tests`). |
 | 🟡 MEDIUM | **Chưa xử lý online/offline node** | ✅ Đã xử lý | `NodePresenceService` (singleton) theo dõi LWT (`smarthome/status/{node}/online`, retained) + birth message + timeout heartbeat; phát `DEVICE_OFFLINE` đúng **1 lần** khi online→offline và cập nhật `EspNode.Status/LastSeenAt`. |
-| 🟢 LOW | **Đặt tên thư mục** | ⏳ Còn lại | `View/`, `Service/` (số ít) vẫn lệch `Views/`, `Services/`. **Chưa sửa** vì đổi tên thư mục trong WPF kéo theo cập nhật namespace/`x:Class`/`clr-namespace` — rủi ro cao, lợi ích chỉ cosmetic. |
+| 🟢 LOW | **Đặt tên thư mục** | ✅ Đã xử lý (thư mục) | **Thư mục đã đổi** sang `Views/`, `Services/` (số nhiều). **Namespace giữ nguyên** `Smart_Home.View` / `Smart_Home.Service` — quyết định có chủ đích: đổi namespace kéo theo `x:Class`/`clr-namespace` trong mọi XAML, rủi ro cao mà lợi ích chỉ cosmetic. Chấp nhận lệch nhẹ thư-mục↔namespace. |
 
-> **Tóm tắt thay đổi (2026-06-10)** — hoàn tất **#4**: nối service vào DI trong `App.xaml.cs`, refactor toàn bộ **7 ViewModel** sang gọi service (xoá ~300 dòng EF Core/BCrypt trùng lặp; service trước đó là dead code), và thêm dự án **`Smart_Home.Tests`** (47 test xanh; 95.4% line / 85.8% branch trên lớp service unit-test — loại trừ `MqttClientService`/`NodePresenceService` vì cần integration test với broker thật / luồng STA). #1, #2, #3, #5 đã có cơ chế sẵn trong code; chỉ còn việc vận hành. #6 giữ nguyên (cosmetic).
+> **Tóm tắt thay đổi (2026-06-10)** — hoàn tất **#4**: nối service vào DI trong `App.xaml.cs`, refactor toàn bộ **7 ViewModel** sang gọi service (xoá ~300 dòng EF Core/BCrypt trùng lặp; service trước đó là dead code), và thêm dự án **`Smart_Home.Tests`** (47 test xanh; 95.4% line / 85.8% branch trên lớp service unit-test — loại trừ `MqttClientService`/`NodePresenceService` vì cần integration test với broker thật / luồng STA). #1, #2, #3, #5 đã có cơ chế sẵn trong code; chỉ còn việc vận hành.
+>
+> **Tóm tắt thay đổi (2026-06-11)** — đóng nốt phần **vận hành** của #1–#2 và #6:
+> - **Mosquitto bật auth**: tạo `broker-setup/auth.conf` (`allow_anonymous false`, `password_file`, listener bind `127.0.0.1:1883`) + tạo user `wpfclient` bằng `mosquitto_passwd`; đã **test kết nối thành công** từ WPF.
+> - **Cơ chế `.env`**: thêm `EnvFileLoader.cs` (nạp `.env` vào env tiến trình trước khi build configuration; env thật ưu tiên hơn `.env`), `.env` chứa credential thật (gitignore), `.env.example` làm template (commit).
+> - ⚠️ **Xác minh lịch sử git**: `appsettings.json` commit với `Password=` rỗng (sạch), **nhưng** bản cũ của SECURITY.md chứa mật khẩu DB dạng chữ và commit `61c2f89` **đã được push lên GitHub** → mật khẩu cũ coi như đã lộ, **bắt buộc xoay vòng** (xem SECURITY.md §3). Mật khẩu đã được gỡ khỏi bản hiện tại của SECURITY.md.
+> - **#6**: thư mục đã là `Views/`, `Services/`; namespace giữ số ít (có chủ đích — tránh đụng XAML).
+> - **Kiểm chứng lại test**: `dotnet test` → **47/47 PASS** (2026-06-11).
+>
+> ⚠️ **Hai việc dọn dẹp mới phát hiện (2026-06-11)** — xem mục "Việc tiếp theo" ở Phần 5:
+> 1. `broker-setup/passwd` (file hash PBKDF2 của mật khẩu MQTT) **đang nằm trong git và đã push lên GitHub**. Hash không phải plaintext nhưng có thể bị brute-force offline nếu mật khẩu yếu → gỡ khỏi repo (`git rm --cached`), thêm vào `.gitignore`, và **đổi mật khẩu MQTT** (`mosquitto_passwd` + cập nhật `.env`).
+> 2. `Smart_home_security_database.sql` hiện là **file rỗng (0 byte)** — schema gốc đã mất khỏi repo; cần dump lại từ DB (`pg_dump --schema-only`) hoặc xóa file để khỏi gây hiểu lầm.
 
 ---
 
@@ -359,14 +375,34 @@ Nguồn: [ESP32 alternatives/giá](https://www.espboards.dev/blog/esp32-alternat
 
 ## Phần 5 — Lộ trình triển khai (Roadmap)
 
+### Trạng thái tổng quan (cập nhật 2026-06-11)
+
+| Giai đoạn | Trạng thái | Ghi chú |
+|---|---|---|
+| **GĐ A** — Vá codebase + bảo mật vận hành | ✅ **Hoàn thành** | TLS broker dời sang GĐ C (hợp lý vì broker hiện chỉ nghe localhost) |
+| **GĐ B** — Firmware 2 node ESP32 | 🔜 **TIẾP THEO** | Chưa có dòng firmware nào; thiết kế chân + cấu trúc file đã sẵn ở Phần 7 |
+| **GĐ C** — Pi 5 hub + nhận diện khuôn mặt | 🔧 **Đang làm (nền tảng xong)** | **Đã có Pi5/** (Mosquitto config + bridge MQTT→DB + tests + simulator + systemd, xem `Pi5/README.md`). Còn lại: chạy/kiểm thử trên Pi thật, chuyển DB lên Pi, rồi module nhận diện khuôn mặt |
+| **GĐ D** — Cảnh báo cạy/phá cửa | ⏳ Chưa bắt đầu | Phụ thuộc GĐ B (node cửa) |
+| **GĐ E** — Nâng cấp tùy chọn | 🟡 Một phần | Service layer + 47 test + node presence đã xong; còn liveness nâng cao, push notification |
+
+**Việc tiếp theo, theo thứ tự ưu tiên:**
+
+1. **Bảo mật + dọn dẹp repo (~30 phút, làm ngay)**:
+   - ⚠️ **Xoay vòng mật khẩu PostgreSQL cũ** (`ALTER ROLE postgres WITH PASSWORD '<mới>'` rồi cập nhật `.env`) — bản cũ của SECURITY.md chứa mật khẩu dạng chữ và commit `61c2f89` đã push lên GitHub (SECURITY.md §3).
+   - Gỡ `broker-setup/passwd` khỏi git (`git rm --cached broker-setup/passwd`) + thêm `broker-setup/passwd` vào `.gitignore`; vì hash đã push lên GitHub, nên đổi luôn mật khẩu MQTT (`mosquitto_passwd`) rồi cập nhật `.env`.
+   - Khôi phục `Smart_home_security_database.sql` (đang 0 byte): `pg_dump --schema-only Smart_Home_db > Smart_home_security_database.sql`.
+2. **GĐ B — firmware ESP32 (mua linh kiện theo BOM Phần 4.5/6, code theo Phần 7)**: bắt đầu với **node nhà** (DHT22 + relay — đơn giản, thấy kết quả ngay trên Dashboard), sau đó node cửa (RFID/keypad/khóa). Đây là **đường găng** của toàn dự án.
+3. **Khi node ESP32 đầu tiên cần kết nối**: đổi listener Mosquitto từ `127.0.0.1` sang IP LAN trong `broker-setup/auth.conf`, tạo thêm user MQTT riêng cho từng node (`mosquitto_passwd <file> esp32-door`), và bật TLS theo SECURITY.md §4.
+4. **GĐ C → GĐ D** theo kế hoạch chi tiết bên dưới.
+
 > Mỗi giai đoạn có **việc cần làm · file/topic/bảng liên quan · tiêu chí hoàn thành**.
 
-### GĐ A — Vá nhanh codebase (1–2 ngày, $0)
-> **Trạng thái (2026-06-10)**: phần **code đã xong** (xem mục 1.4 #1–#3). Còn lại là việc **vận hành**.
-- ✅ Chuẩn hóa topic về `smarthome/` — gom về `Service/MqttTopics.cs` (nguồn chân lý duy nhất).
-- ✅ Đưa secrets ra env/user-secrets (`App.xaml.cs` đọc user-secrets → env → appsettings). *Còn lại: **xoay vòng** mật khẩu DB thật.*
-- ✅ Client hỗ trợ auth + TLS (`MqttOptions.Username/Password/UseTls/CaCertPath`). *Còn lại: bật auth/TLS trên Mosquitto.*
-- ✅ *Done khi*: WPF kết nối broker có auth/TLS, không còn secret trong file commit.
+### GĐ A — Vá nhanh codebase (1–2 ngày, $0) — ✅ HOÀN THÀNH 2026-06-11
+- ✅ Chuẩn hóa topic về `smarthome/` — gom về `Services/MqttTopics.cs` (nguồn chân lý duy nhất).
+- ✅ Đưa secrets ra `.env`/env/user-secrets (`EnvFileLoader` + `App.xaml.cs`; thứ tự: env/.env → user-secrets → appsettings). ⚠️ *Còn 1 việc 5 phút*: **xoay vòng mật khẩu DB cũ** — nó từng nằm trong SECURITY.md và đã push lên GitHub (xem SECURITY.md §3).
+- ✅ Client hỗ trợ auth + TLS (`MqttOptions.Username/Password/UseTls/CaCertPath`).
+- ✅ Mosquitto bật **auth bắt buộc** (`broker-setup/auth.conf`: `allow_anonymous false` + `password_file`, bind `127.0.0.1:1883`); WPF kết nối thành công bằng credential từ `.env`.
+- ✅ *Tiêu chí đạt*: WPF kết nối broker có auth, không còn secret trong file commit. *(TLS broker chuyển sang GĐ C — chỉ cần khi listener mở ra LAN.)*
 
 ### GĐ B — Firmware 2 node ESP32 (3–5 ngày)
 - Node **cửa**: RFID (MFRC522) + keypad 4x4 + solenoid (relay) + reed + SW-420 + MPU6050 + còi.
@@ -377,7 +413,14 @@ Nguồn: [ESP32 alternatives/giá](https://www.espboards.dev/blog/esp32-alternat
 - ✅ *Done khi*: Dashboard WPF hiển thị sensor thật + điều khiển đèn/quạt thật qua MQTT.
 
 ### GĐ C — Pi 5 hub + nhận diện khuôn mặt (4–7 ngày)
+- ✅ **Nền tảng đã dựng (thư mục `Pi5/`)**: cấu hình Mosquitto cho Pi (auth + TLS + LAN), **bridge Python**
+  subscribe MQTT → ghi `sensor_readings`/`access_logs`/`alerts`/`esp_nodes` (lấp đúng "writer luôn-bật" mà
+  WPF còn thiếu — đã đối chiếu `DashboardService`), unit test handlers (thuần), `tools/simulate.py` để test
+  end-to-end không cần phần cứng, systemd unit, và `scripts/migrate_db.md` (chuyển DB PC→Pi). Xem `Pi5/README.md`.
+  *Còn lại: chạy & kiểm thử trên Pi thật, chuyển DB lên Pi, rồi viết module nhận diện khuôn mặt.*
 - Cài Mosquitto (+ PostgreSQL hoặc SQLite) trên Pi 5; viết **bridge Python** subscribe MQTT → ghi DB.
+  Khi chuyển broker từ PC Windows sang Pi: tái sử dụng cấu hình auth (`broker-setup/auth.conf` làm mẫu),
+  **bật TLS** (SECURITY.md §4), bind ra LAN, và đổi `MqttOptions:Host` của WPF sang IP Pi.
 - Module nhận diện: OpenCV DNN + face_recognition + MediaPipe (blink), trigger bằng PIR.
 - Enroll khuôn mặt người dùng (map tới `users.id`); publish `smarthome/face/result` + `door/control`.
 - Bảng/cột: thêm giá trị `method="FACE_RECOGNITION"` vào `access_logs`; `esp_nodes.node_type="raspberry_pi"`.
@@ -392,8 +435,9 @@ Nguồn: [ESP32 alternatives/giá](https://www.espboards.dev/blog/esp32-alternat
 ### GĐ E — Nâng cấp tùy chọn (khi rảnh)
 - ✅ **Đã xong**: tách **service layer** + **47 unit test** (95.4% line / 85.8% branch lớp service) — xem mục 1.4 #4.
 - ✅ **Đã xong**: dashboard online/offline node qua `NodePresenceService` (LWT + heartbeat) — mục 1.4 #5.
+- ✅ **Đã xong** (2026-06-11): đổi tên thư mục `Views/`, `Services/` (#6 — namespace giữ nguyên có chủ đích).
 - Còn lại: liveness nâng cao (challenge-response), push notification điện thoại; (tùy chọn) integration test cho
-  `MqttClientService`/`NodePresenceService`; đổi tên thư mục `View/`→`Views/`, `Service/`→`Services/` (#6, cosmetic).
+  `MqttClientService`/`NodePresenceService` khi đã có broker chạy ổn định trên Pi 5.
 
 ---
 

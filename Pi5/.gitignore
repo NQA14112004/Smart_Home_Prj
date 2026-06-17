@@ -1,0 +1,16 @@
+# Secrets and local config - never commit
+.env
+config.yaml
+
+# TLS material
+certs/
+*.key
+*.crt
+*.csr
+*.srl
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
